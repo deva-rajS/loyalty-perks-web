@@ -1,0 +1,9 @@
+.custom-phone-input input:focus {
+  border: 20px solid red;
+  border-color: red;
+  outline: none;
+}
+
+/* .custom-phone-input input:focus {
+  border-color: var(--mui-palette-primary-main);
+} */
