@@ -17,7 +17,7 @@ import ThanksScreen from "./screens/thanks/ThanksScreen";
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="/loyalty-perks-web">
         <Routes>
           <Route path="/" element={<Navigate to="/splashscreen" replace  />} />
           {/* <Route path="/" element={<Navigate to="/simplelogin" replace />} /> */}
