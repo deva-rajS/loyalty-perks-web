@@ -1,13 +1,19 @@
 {
   "files": {
-    "main.css": "/deva-rajS/loyalty-perks-web/static/css/main.ff411b61.css",
-    "main.js": "/deva-rajS/loyalty-perks-web/static/js/main.bd5046eb.js",
+    "main.css": "/deva-rajS/loyalty-perks-web/static/css/main.447d9671.css",
+    "main.js": "/deva-rajS/loyalty-perks-web/static/js/main.b3f7e759.js",
+    "static/media/GreyBack.jpg": "/deva-rajS/loyalty-perks-web/static/media/GreyBack.dd8a52d5115bf2494d95.jpg",
+    "static/media/SignIn.png": "/deva-rajS/loyalty-perks-web/static/media/SignIn.2a21186b36c51100c34d.png",
+    "static/media/card6.png": "/deva-rajS/loyalty-perks-web/static/media/card6.0f2f71d1227d104d9db3.png",
+    "static/media/card3.png": "/deva-rajS/loyalty-perks-web/static/media/card3.632ecf6e7bdc4d642bd8.png",
+    "static/media/card1.png": "/deva-rajS/loyalty-perks-web/static/media/card1.a33fd5730a341eaa1816.png",
+    "static/media/card2.png": "/deva-rajS/loyalty-perks-web/static/media/card2.ab69ebd522b06fb70bb4.png",
     "index.html": "/deva-rajS/loyalty-perks-web/index.html",
-    "main.ff411b61.css.map": "/deva-rajS/loyalty-perks-web/static/css/main.ff411b61.css.map",
-    "main.bd5046eb.js.map": "/deva-rajS/loyalty-perks-web/static/js/main.bd5046eb.js.map"
+    "main.447d9671.css.map": "/deva-rajS/loyalty-perks-web/static/css/main.447d9671.css.map",
+    "main.b3f7e759.js.map": "/deva-rajS/loyalty-perks-web/static/js/main.b3f7e759.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff411b61.css",
-    "static/js/main.bd5046eb.js"
+    "static/css/main.447d9671.css",
+    "static/js/main.b3f7e759.js"
   ]
 }
