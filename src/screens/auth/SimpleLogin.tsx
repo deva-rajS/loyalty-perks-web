@@ -12,19 +12,22 @@ import {
   clearMessage,
   onUserSignUp,
 } from "../../reducers/authReducer";
+import { rootNames } from "../../common/constants";
+import theme from "../../theme/theme";
 
 type SignUpProps = {
   loginKey: string;
 };
 
-const SignUp: React.FC<SignUpProps> = ({ loginKey }) => {
+const SimpleLogin = () => {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useAppDispatch();
   const { loading, error, isLogin, message } = useSelector(
     (state: RootState) => state.auth
   );
 
-  const [fullName, setFullName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [loginCode, setLoginCode] = useState("");
   const [password, setPassword] = useState("");
@@ -37,14 +40,14 @@ const SignUp: React.FC<SignUpProps> = ({ loginKey }) => {
   }, [error]);
 
   const handleResetFields = () => {
-    setFullName("");
+    setFirstName("");
     setPhoneNumber("");
     setLoginCode("");
     setPassword("");
   };
 
   const handleSignup = async () => {
-    if (!fullName || !phoneNumber || !loginCode || !password) {
+    if (!firstName || !phoneNumber || !loginCode || !password) {
       alert("Please fill all required fields.");
       return;
     }
@@ -61,22 +64,15 @@ const SignUp: React.FC<SignUpProps> = ({ loginKey }) => {
       formattedPhone = `+91${formattedPhone}`;
     }
 
-    const userData =
-      loginKey === keys.adminLoginKey
-        ? {
-            fullName,
-            phoneNumber: formattedPhone,
-            companyAdminLoginCode: loginCode,
-            password,
-          }
-        : {
-            fullName,
-            phoneNumber: formattedPhone,
-            companyUserLoginCode: loginCode,
-            password,
-          };
+    const userData = {
+      firstName,
+      lastName,
+      phoneNumber: formattedPhone,
+      loginCode,
+      password,
+    };
 
-    // const resultAction = await dispatch(onUserSignUp(userData));
+    const resultAction = await dispatch(onUserSignUp(userData));
     // if (onUserSignUp.fulfilled.match(resultAction)) {
     //   alert(message || "Account created successfully.");
     //   handleResetFields();
@@ -85,8 +81,17 @@ const SignUp: React.FC<SignUpProps> = ({ loginKey }) => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Box sx={{ textAlign: "center", my: 4 }}>
+    <Container
+      maxWidth="sm"
+      sx={{
+        display: "flex",
+        height: "94vh",
+        borderRadius: "20px",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
+    >
+      <Box sx={{ textAlign: "center", mb: 2 }}>
         <img
           src={SignInImage}
           alt="Sign Up"
@@ -101,15 +106,24 @@ const SignUp: React.FC<SignUpProps> = ({ loginKey }) => {
         />
       </Box>
 
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mx: 1 }}>
+        <Typography variant="h4" align="center" sx={{ fontWeight: "bold", mb: 1, color: theme.palette.primary.main }}>
+          Good Food
+        </Typography>
         <TextField
-          label="Full Name"
-          value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
+          label="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          fullWidth
+        />
+        <TextField
+          label="Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
           fullWidth
         />
 
-        <Box mt={3}>
+        {/* <Box mt={3}>
           <PhoneInput
             country={"in"}
             value={phoneNumber}
@@ -121,41 +135,27 @@ const SignUp: React.FC<SignUpProps> = ({ loginKey }) => {
             //   },
             // }}
           />
-        </Box>
-
-        <TextField
-          label={loginKey === keys.adminLoginKey ? "Admin Code" : "User Code"}
-          value={loginCode}
-          onChange={(e) => setLoginCode(e.target.value)}
-          fullWidth
-        />
-
-        <TextField
-          label="Password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          fullWidth
-        />
+        </Box> */}
 
         <Button
           variant="contained"
           color="primary"
-          onClick={handleSignup}
+          onClick={() => navigate(`/${rootNames.GAME_SCREEN}`, { replace: true })}
           disabled={loading}
+          sx={{ mx: "auto", px: 4, py: 1.5, mt: 2}}
         >
-          {loading ? "Signing up..." : "Sign up"}
+          Play now
         </Button>
 
-        <Typography align="center" sx={{ mt: 2 }}>
+        {/* <Typography align="center" sx={{ mt: 2 }}>
           Already have an account?{" "}
           <Button onClick={() => navigate("/")} variant="text">
             Sign in now
           </Button>
-        </Typography>
+        </Typography> */}
       </Box>
     </Container>
   );
 };
 
-export default SignUp;
+export default SimpleLogin;

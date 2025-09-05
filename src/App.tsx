@@ -8,17 +8,29 @@ import { store } from "./config/createStore";
 import SignUpContainer from "./screens/auth/SignUpContainer";
 import { rootNames } from "./common/constants";
 import ResetPasswordContainer from "./screens/auth/ResetPasswordContainer";
+import SimpleLogin from "./screens/auth/SimpleLogin";
+import GameScreen from "./screens/game/GameScreen";
+import LeaderBoard from "./components/LeaderBoard";
+import SplashScreen from "./screens/splash/SplashScreen";
+import ThanksScreen from "./screens/thanks/ThanksScreen";
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to="/signin" replace />} />
+          <Route path="/" element={<Navigate to="/splashscreen" replace  />} />
+          {/* <Route path="/" element={<Navigate to="/simplelogin" replace />} /> */}
           <Route path={rootNames.SING_IN} element={<SignIn />}></Route>
+          <Route path={rootNames.SPLASH_SCREEN} element={<SplashScreen />}></Route>
+          <Route path={rootNames.SIMPLE_LOGIN} element={<SimpleLogin />}></Route>
 
           <Route path={rootNames.SING_UP} element={<SignUpContainer />}></Route>
           <Route path={rootNames.RESET_PASSWORD} element={<ResetPasswordContainer />}></Route>
+
+          <Route path={rootNames.GAME_SCREEN} element={<GameScreen />}></Route>
+          <Route path={rootNames.LEADERBOARD} element={<LeaderBoard />}></Route>
+          <Route path={rootNames.THANKS_SCREEN} element={<ThanksScreen />}></Route>
           {/* <Route path="/Sample" element={<Sample />}></Route> */}
           {/* <Route element={<PrivateRoute />}> 
           <Route path="/app" element={<Homepage />}>

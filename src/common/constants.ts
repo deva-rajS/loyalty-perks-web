@@ -1,5 +1,7 @@
 // import { Dimensions, PixelRatio } from 'react-native';
 
+import { T } from "react-router/dist/development/fog-of-war-oa9CGk10";
+
 // export const {width, height} = Dimensions.get('window');
 
 export const rootNames = {
@@ -13,6 +15,9 @@ export const rootNames = {
   PROFILE_SETTINGS: 'profilesettings',
   DRAWER: 'drawer',
 
+  SPLASH_SCREEN: 'splashscreen',  
+  SIMPLE_LOGIN: 'simplelogin',
+  THANKS_SCREEN: 'thanksscreen',
   SING_IN: 'signin',
   SING_UP: 'signup',
   SING_UP_ADMIN: 'signupadmin',
@@ -25,6 +30,8 @@ export const rootNames = {
   RESET_PASSWORD_USER: 'resetpassworduser',
   RESET_PASSWORD_CONTAINER: 'resetpasswordcontainer',
 
+  GAME_SCREEN: 'gamescreen',
+  LEADERBOARD: 'leaderboard',
   ADD_USER: 'adduser',
   MANAGE_CUSTOMERS: 'managecustomers',
   MANAGE_USERS: 'manageusers',

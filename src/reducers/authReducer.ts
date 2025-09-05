@@ -82,7 +82,8 @@ export const onUserSignUp = createAsyncThunk(
   'authSlice/signup',
   async (
     userData: {
-      fullName: string;
+      firstName: string;
+      lastName: string;
       phoneNumber: string;
       password: string;
       companyAdminLoginCode?: string;

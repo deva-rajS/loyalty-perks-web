@@ -2,8 +2,8 @@
 // import MCIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // import TaaskyText from '../components/TaaskyText';
-import colors from './colorConstants';
-import { rootNames } from './constants';
+import colors from "./colorConstants";
+import { rootNames } from "./constants";
 
 // const homeHeader = (route, navigation) => {
 //   const headerTitle = route.params.headerTitle;
@@ -70,33 +70,33 @@ export const formatDateToCustomFormat = (dateString: string) => {
 
   const day = date.getDate();
   const monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
   const month = monthNames[date.getMonth()];
   const year = date.getFullYear();
 
   const getOrdinalSuffix = (day: number): string => {
-    if (day > 3 && day < 21) return 'th';
+    if (day > 3 && day < 21) return "th";
     switch (day % 10) {
       case 1:
-        return 'st';
+        return "st";
       case 2:
-        return 'nd';
+        return "nd";
       case 3:
-        return 'rd';
+        return "rd";
       default:
-        return 'th';
+        return "th";
     }
   };
 
@@ -105,43 +105,53 @@ export const formatDateToCustomFormat = (dateString: string) => {
 
 export const formatTimestamp = (timestamp: number) => {
   if (!timestamp || isNaN(timestamp)) {
-    console.error('Invalid timestamp:', timestamp);
+    console.error("Invalid timestamp:", timestamp);
     return timestamp;
   }
 
   const date = new Date(timestamp * 1000);
 
   if (isNaN(date.getTime())) {
-    console.error('Invalid Date object:', date);
-    return 'Invalid Date';
+    console.error("Invalid Date object:", date);
+    return "Invalid Date";
   }
 
   const options: Intl.DateTimeFormatOptions = {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
   };
-  return date.toLocaleDateString('en-GB', options).replace(',', '');
+  return date.toLocaleDateString("en-GB", options).replace(",", "");
 };
 
 export const formattedPhoneNumber = (phoneNumber: any) => {
   let formattedPhoneNumber = phoneNumber;
-  if (formattedPhoneNumber?.startsWith('+91')) {
+  if (formattedPhoneNumber?.startsWith("+91")) {
     formattedPhoneNumber = formattedPhoneNumber.slice(3);
   }
   return formattedPhoneNumber;
 };
 
 export const handleTextChange = (text: string, setNumber: any) => {
-  let formattedNumber = text.replace(/^\+91\s?/, '');
+  let formattedNumber = text.replace(/^\+91\s?/, "");
   setNumber(formattedNumber);
 };
 
+export const formatTime = (totalSeconds: number): string => {
+  const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, "0");
+  const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(
+    2,
+    "0"
+  );
+  const seconds = String(totalSeconds % 60).padStart(2, "0");
+  return `${hours}:${minutes}:${seconds}`;
+};
+
 export const keys = {
-  adminLoginKey: 'companyAdminLoginCode',
-  userLoginKey: 'companyUserLoginCode',
-  admin: 'admin',
-  worker: 'worker',
+  adminLoginKey: "companyAdminLoginCode",
+  userLoginKey: "companyUserLoginCode",
+  admin: "admin",
+  worker: "worker",
 };
 
 // const styles = StyleSheet.create({
