@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/deva-rajS/loyalty-perks-web/static/css/main.ff411b61.css",
+    "main.js": "/deva-rajS/loyalty-perks-web/static/js/main.bd5046eb.js",
+    "index.html": "/deva-rajS/loyalty-perks-web/index.html",
+    "main.ff411b61.css.map": "/deva-rajS/loyalty-perks-web/static/css/main.ff411b61.css.map",
+    "main.bd5046eb.js.map": "/deva-rajS/loyalty-perks-web/static/js/main.bd5046eb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff411b61.css",
+    "static/js/main.bd5046eb.js"
+  ]
+}
